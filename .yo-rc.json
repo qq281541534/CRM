@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "CRM",
+    "packageName": "com.bunny.crm",
+    "packageFolder": "com/bunny/crm",
+    "serverPort": 8083,
+    "serviceDiscoveryType": false,
+    "authenticationType": "session",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": true,
+    "nativeLanguage": "zh-cn",
+    "languages": [
+      "zh-tw",
+      "en",
+      "zh-cn"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.5.0",
+    "rememberMeKey": "2a2e663ebef3b2cbf97c674323ca4aaaa6efb821a9808a2cbc14185c02248c5df0b14cf4edecfa28b17978e25ecbb3cfa4e8"
+  },
+  "git-provider": "GitHub",
+  "git-company": "qq281541534",
+  "repository-name": "CRM"
+}
