@@ -1,0 +1,56 @@
+
+{
+    "crmApp": {
+        "customer" : {
+            "home": {
+                "title": "Customers",
+                "createLabel": "建立一筆新的 Customer",
+                "createOrEditLabel": "建立或編輯 Customer"
+            },
+            "created": "新的 Customer 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Customer 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Customer 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Customer {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Customer"
+            },
+            "name": "Name",
+            "level": "Level",
+            "phone": "Phone",
+            "intentionProduct": "Intention Product",
+            "resistance": "Resistance",
+            "intentionPrice": "Intention Price",
+            "intentionSpace": "Intention Space",
+            "source": "Source",
+            "demandArea": "Demand Area",
+            "visitNumber": "Visit Number",
+            "homeAddress": "Home Address",
+            "profession": "Profession",
+            "remark": "Remark",
+            "createTime": "Create Time",
+            "updateTime": "Update Time",
+            "delFlag": "Del Flag",
+            "user": "User",
+            "help": {
+                "name": "姓名",
+                "level": "客户等级 A/B/C",
+                "phone": "联系电话",
+                "intentionProduct": "意向产品 类型:1 住房,2 公寓,3 商业",
+                "resistance": "抗性，阻力",
+                "intentionPrice": "意向价格",
+                "intentionSpace": "意向面积",
+                "source": "客户来源:1 电邀,2 传单,3 ?",
+                "demandArea": "需求区域",
+                "visitNumber": "到访次数",
+                "homeAddress": "居住地址",
+                "profession": "客户职业",
+                "remark": "备注",
+                "createTime": "创建时间",
+                "updateTime": "更新时间",
+                "delFlag": "是否删除"
+            }
+        }
+    }
+}

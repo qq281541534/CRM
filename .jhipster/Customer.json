@@ -1,0 +1,142 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "姓名",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "level",
+            "javadoc": "客户等级 A/B/C",
+            "fieldType": "Level",
+            "fieldValues": "A,B,C"
+        },
+        {
+            "fieldName": "phone",
+            "javadoc": "联系电话",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 11,
+            "fieldValidateRulesMaxlength": 11
+        },
+        {
+            "fieldName": "intentionProduct",
+            "javadoc": "意向产品 类型:1 住房,2 公寓,3 商业",
+            "fieldType": "IntentionProduct",
+            "fieldValues": "HOUSING,APARTMENT,COMMERCE"
+        },
+        {
+            "fieldName": "resistance",
+            "javadoc": "抗性，阻力",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 500
+        },
+        {
+            "fieldName": "intentionPrice",
+            "javadoc": "意向价格",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "intentionSpace",
+            "javadoc": "意向面积",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "source",
+            "javadoc": "客户来源:1 电邀,2 传单,3 ?",
+            "fieldType": "Source",
+            "fieldValues": "CALL,INITIATIVE,LEAFLET"
+        },
+        {
+            "fieldName": "demandArea",
+            "javadoc": "需求区域",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "visitNumber",
+            "javadoc": "到访次数",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "homeAddress",
+            "javadoc": "居住地址",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "profession",
+            "javadoc": "客户职业",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "remark",
+            "javadoc": "备注",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 2000
+        },
+        {
+            "fieldName": "createTime",
+            "javadoc": "创建时间",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updateTime",
+            "javadoc": "更新时间",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "delFlag",
+            "javadoc": "是否删除",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181102034811",
+    "entityTableName": "customer",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mySuffix"
+}

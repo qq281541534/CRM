@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="crmApp.customer.home.title">Customers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer-my-suffix" [routerLink]="['/customer-my-suffix/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="crmApp.customer.home.createLabel">
+            Create new Customer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="customers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="crmApp.customer.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="level"><span jhiTranslate="crmApp.customer.level">Level</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone"><span jhiTranslate="crmApp.customer.phone">Phone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="intentionProduct"><span jhiTranslate="crmApp.customer.intentionProduct">Intention Product</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="resistance"><span jhiTranslate="crmApp.customer.resistance">Resistance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="intentionPrice"><span jhiTranslate="crmApp.customer.intentionPrice">Intention Price</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="intentionSpace"><span jhiTranslate="crmApp.customer.intentionSpace">Intention Space</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="source"><span jhiTranslate="crmApp.customer.source">Source</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="demandArea"><span jhiTranslate="crmApp.customer.demandArea">Demand Area</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="visitNumber"><span jhiTranslate="crmApp.customer.visitNumber">Visit Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="homeAddress"><span jhiTranslate="crmApp.customer.homeAddress">Home Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="profession"><span jhiTranslate="crmApp.customer.profession">Profession</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="remark"><span jhiTranslate="crmApp.customer.remark">Remark</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="crmApp.customer.createTime">Create Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span jhiTranslate="crmApp.customer.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let customer of customers ;trackBy: trackId">
+                <td><a [routerLink]="['/customer-my-suffix', customer.id, 'view' ]">{{customer.id}}</a></td>
+                <td>{{customer.name}}</td>
+                <td jhiTranslate="{{'crmApp.Level.' + customer.level}}">{{customer.level}}</td>
+                <td>{{customer.phone}}</td>
+                <td jhiTranslate="{{'crmApp.IntentionProduct.' + customer.intentionProduct}}">{{customer.intentionProduct}}</td>
+                <td>{{customer.resistance}}</td>
+                <td>{{customer.intentionPrice}}</td>
+                <td>{{customer.intentionSpace}}</td>
+                <td jhiTranslate="{{'crmApp.Source.' + customer.source}}">{{customer.source}}</td>
+                <td>{{customer.demandArea}}</td>
+                <td>{{customer.visitNumber}}</td>
+                <td>{{customer.homeAddress}}</td>
+                <td>{{customer.profession}}</td>
+                <td>{{customer.remark}}</td>
+                <td>{{customer.createTime | date:'medium'}}</td>
+                <td>
+                    {{customer.firstName}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/customer-my-suffix', customer.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/customer-my-suffix', customer.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'customer-my-suffix/'+ customer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

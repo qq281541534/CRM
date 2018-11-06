@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Customer.
+    -->
+    <changeSet id="20181102034811-1" author="jhipster">
+        <createTable tableName="customer">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(20)" remarks="姓名">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_level" type="varchar(255)" remarks="客户等级 A/B/C">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="phone" type="varchar(11)" remarks="联系电话">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="intention_product" type="varchar(255)" remarks="意向产品 类型:1 住房,2 公寓,3 商业">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="resistance" type="varchar(500)" remarks="抗性，阻力">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="intention_price" type="varchar(100)" remarks="意向价格">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="intention_space" type="varchar(100)" remarks="意向面积">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="source" type="varchar(255)" remarks="客户来源:1 电邀,2 传单,3 ?">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="demand_area" type="varchar(255)" remarks="需求区域">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="visit_number" type="integer" remarks="到访次数">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="home_address" type="varchar(1000)" remarks="居住地址">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="profession" type="varchar(20)" remarks="客户职业">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="remark" type="varchar(2000)" remarks="备注">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="create_time" type="datetime" remarks="创建时间">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="update_time" type="datetime" remarks="更新时间">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="del_flag" type="bit" remarks="是否删除">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="customer" columnName="create_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="customer" columnName="update_time" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

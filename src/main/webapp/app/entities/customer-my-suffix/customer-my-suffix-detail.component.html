@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="crmApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="crmApp.customer.name" [ngbTooltip]="'crmApp.customer.help.name' | translate">Name</span></dt>
+                <dd>
+                    <span>{{customer.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.level" [ngbTooltip]="'crmApp.customer.help.level' | translate">Level</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'crmApp.Level.' + customer.level}}">{{customer.level}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.phone" [ngbTooltip]="'crmApp.customer.help.phone' | translate">Phone</span></dt>
+                <dd>
+                    <span>{{customer.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.intentionProduct" [ngbTooltip]="'crmApp.customer.help.intentionProduct' | translate">Intention Product</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'crmApp.IntentionProduct.' + customer.intentionProduct}}">{{customer.intentionProduct}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.resistance" [ngbTooltip]="'crmApp.customer.help.resistance' | translate">Resistance</span></dt>
+                <dd>
+                    <span>{{customer.resistance}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.intentionPrice" [ngbTooltip]="'crmApp.customer.help.intentionPrice' | translate">Intention Price</span></dt>
+                <dd>
+                    <span>{{customer.intentionPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.intentionSpace" [ngbTooltip]="'crmApp.customer.help.intentionSpace' | translate">Intention Space</span></dt>
+                <dd>
+                    <span>{{customer.intentionSpace}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.source" [ngbTooltip]="'crmApp.customer.help.source' | translate">Source</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'crmApp.Source.' + customer.source}}">{{customer.source}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.demandArea" [ngbTooltip]="'crmApp.customer.help.demandArea' | translate">Demand Area</span></dt>
+                <dd>
+                    <span>{{customer.demandArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.visitNumber" [ngbTooltip]="'crmApp.customer.help.visitNumber' | translate">Visit Number</span></dt>
+                <dd>
+                    <span>{{customer.visitNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.homeAddress" [ngbTooltip]="'crmApp.customer.help.homeAddress' | translate">Home Address</span></dt>
+                <dd>
+                    <span>{{customer.homeAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.profession" [ngbTooltip]="'crmApp.customer.help.profession' | translate">Profession</span></dt>
+                <dd>
+                    <span>{{customer.profession}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.remark" [ngbTooltip]="'crmApp.customer.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{customer.remark}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.createTime" [ngbTooltip]="'crmApp.customer.help.createTime' | translate">Create Time</span></dt>
+                <dd>
+                    <span>{{customer.createTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.updateTime" [ngbTooltip]="'crmApp.customer.help.updateTime' | translate">Update Time</span></dt>
+                <dd>
+                    <span>{{customer.updateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.delFlag" [ngbTooltip]="'crmApp.customer.help.delFlag' | translate">Del Flag</span></dt>
+                <dd>
+                    <span>{{customer.delFlag}}</span>
+                </dd>
+                <dt><span jhiTranslate="crmApp.customer.user">User</span></dt>
+                <dd>
+                    {{customer.firstName}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+        </div>
+    </div>
+</div>

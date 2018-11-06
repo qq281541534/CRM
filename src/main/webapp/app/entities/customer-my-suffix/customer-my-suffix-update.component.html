@@ -1,0 +1,165 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-customer-my-suffix-heading" jhiTranslate="crmApp.customer.home.createOrEditLabel">Create or edit a Customer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!customer.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="customer.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.name" for="field_name" [ngbTooltip]="'crmApp.customer.help.name' | translate">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="customer.name" required maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.level" for="field_level" [ngbTooltip]="'crmApp.customer.help.level' | translate">Level</label>
+                    <select class="form-control" name="level" [(ngModel)]="customer.level" id="field_level" >
+                        <option value="A">{{'crmApp.Level.A' | translate}}</option>
+                        <option value="B">{{'crmApp.Level.B' | translate}}</option>
+                        <option value="C">{{'crmApp.Level.C' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.phone" for="field_phone" [ngbTooltip]="'crmApp.customer.help.phone' | translate">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="customer.phone" required minlength="11" maxlength="11"/>
+                    <div [hidden]="!(editForm.controls.phone?.dirty && editForm.controls.phone?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 11 }">
+                        This field is required to be at least 11 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.phone?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 11 }">
+                        This field cannot be longer than 11 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.intentionProduct" for="field_intentionProduct" [ngbTooltip]="'crmApp.customer.help.intentionProduct' | translate">Intention Product</label>
+                    <select class="form-control" name="intentionProduct" [(ngModel)]="customer.intentionProduct" id="field_intentionProduct" >
+                        <option value="HOUSING">{{'crmApp.IntentionProduct.HOUSING' | translate}}</option>
+                        <option value="APARTMENT">{{'crmApp.IntentionProduct.APARTMENT' | translate}}</option>
+                        <option value="COMMERCE">{{'crmApp.IntentionProduct.COMMERCE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.resistance" for="field_resistance" [ngbTooltip]="'crmApp.customer.help.resistance' | translate">Resistance</label>
+                    <input type="text" class="form-control" name="resistance" id="field_resistance"
+                        [(ngModel)]="customer.resistance" maxlength="500"/>
+                    <div [hidden]="!(editForm.controls.resistance?.dirty && editForm.controls.resistance?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.resistance?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 500 }">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.intentionPrice" for="field_intentionPrice" [ngbTooltip]="'crmApp.customer.help.intentionPrice' | translate">Intention Price</label>
+                    <input type="text" class="form-control" name="intentionPrice" id="field_intentionPrice"
+                        [(ngModel)]="customer.intentionPrice" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.intentionPrice?.dirty && editForm.controls.intentionPrice?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.intentionPrice?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.intentionSpace" for="field_intentionSpace" [ngbTooltip]="'crmApp.customer.help.intentionSpace' | translate">Intention Space</label>
+                    <input type="text" class="form-control" name="intentionSpace" id="field_intentionSpace"
+                        [(ngModel)]="customer.intentionSpace" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.intentionSpace?.dirty && editForm.controls.intentionSpace?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.intentionSpace?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.source" for="field_source" [ngbTooltip]="'crmApp.customer.help.source' | translate">Source</label>
+                    <select class="form-control" name="source" [(ngModel)]="customer.source" id="field_source" >
+                        <option value="CALL">{{'crmApp.Source.CALL' | translate}}</option>
+                        <option value="INITIATIVE">{{'crmApp.Source.INITIATIVE' | translate}}</option>
+                        <option value="LEAFLET">{{'crmApp.Source.LEAFLET' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.demandArea" for="field_demandArea" [ngbTooltip]="'crmApp.customer.help.demandArea' | translate">Demand Area</label>
+                    <input type="text" class="form-control" name="demandArea" id="field_demandArea"
+                        [(ngModel)]="customer.demandArea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.visitNumber" for="field_visitNumber" [ngbTooltip]="'crmApp.customer.help.visitNumber' | translate">Visit Number</label>
+                    <input type="number" class="form-control" name="visitNumber" id="field_visitNumber"
+                        [(ngModel)]="customer.visitNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.homeAddress" for="field_homeAddress" [ngbTooltip]="'crmApp.customer.help.homeAddress' | translate">Home Address</label>
+                    <input type="text" class="form-control" name="homeAddress" id="field_homeAddress"
+                        [(ngModel)]="customer.homeAddress" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.homeAddress?.dirty && editForm.controls.homeAddress?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.homeAddress?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.profession" for="field_profession" [ngbTooltip]="'crmApp.customer.help.profession' | translate">Profession</label>
+                    <input type="text" class="form-control" name="profession" id="field_profession"
+                        [(ngModel)]="customer.profession" maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.profession?.dirty && editForm.controls.profession?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.profession?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="crmApp.customer.remark" for="field_remark" [ngbTooltip]="'crmApp.customer.help.remark' | translate">Remark</label>
+                    <textarea class="form-control" name="remark" id="field_remark"
+                              [(ngModel)]="customer.remark" maxlength="2000"></textarea>
+                    <div [hidden]="!(editForm.controls.remark?.dirty && editForm.controls.remark?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.remark?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="crmApp.customer.user" for="field_user">User</label>-->
+                    <!--<select class="form-control" id="field_user" name="user" [(ngModel)]="customer.userId" >-->
+                        <!--<option [ngValue]="null"></option>-->
+                        <!--<option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.firstName}}</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

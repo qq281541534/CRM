@@ -1,0 +1,10 @@
+{
+    "crmApp": {
+        "IntentionProduct" : {
+            "null": "",
+            "HOUSING": "HOUSING",
+            "APARTMENT": "APARTMENT",
+            "COMMERCE": "COMMERCE"
+        }
+    }
+}

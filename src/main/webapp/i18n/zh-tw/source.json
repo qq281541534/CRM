@@ -1,0 +1,10 @@
+{
+    "crmApp": {
+        "Source" : {
+            "null": "",
+            "CALL": "CALL",
+            "INITIATIVE": "INITIATIVE",
+            "LEAFLET": "LEAFLET"
+        }
+    }
+}

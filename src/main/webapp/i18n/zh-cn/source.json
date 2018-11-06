@@ -1,0 +1,10 @@
+{
+    "crmApp": {
+        "Source" : {
+            "null": "",
+            "CALL": "电邀",
+            "INITIATIVE": "主动",
+            "LEAFLET": "传单"
+        }
+    }
+}
